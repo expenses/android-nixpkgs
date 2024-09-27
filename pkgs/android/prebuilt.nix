@@ -3,6 +3,7 @@
 , autoPatchelfHook
 , mkGeneric
 , libedit
+, bzip2
 , ncurses5
 , zlib
 }:
@@ -16,8 +17,8 @@ let
     (
       if (hasPrefix "cmake;" id || hasPrefix "skiaparser;" id) then {
         nativeBuildInputs = [ autoPatchelfHook ];
-        buildInputs = [ ncurses5 stdenv.cc.cc.lib ];
-        
+        buildInputs = [ bzip2 ncurses5 stdenv.cc.cc.lib ];
+
         postUnpack = ''
             autoPatchelf $out
         '';
