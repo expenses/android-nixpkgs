@@ -14,6 +14,7 @@ stdenv.mkDerivation ({
   # Some executables that have been patched with patchelf may not work any longer after they have been stripped.
   dontStrip = true;
   dontPatchELF = true;
+  dontAutoPatchelf = true;
 
   inherit (package) pname version;
 
